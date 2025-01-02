@@ -73,3 +73,11 @@ export const deleteTask = async (req, res) => {
     }
 };
 
+export default {
+    createTask,
+    getAllTasks,
+    getTasksByCategory,
+    getTaskById,
+    updateTask,
+    deleteTask
+};
