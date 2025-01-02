@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const apiUrl = `${backendUrl}/api`;
+
+
 const TaskForm = ({ onSubmit }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -11,7 +15,7 @@ const TaskForm = ({ onSubmit }) => {
     console.log('Submitting task:', { title, description, category }); // Логируем данные
     setLoading(true);
     try {
-        const response = await fetch('http://localhost:5000/api/tasks', {
+        const response = await fetch('${apiUrl}/tasks', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ title, description, category }),

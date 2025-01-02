@@ -1,4 +1,7 @@
-const API_URL = 'http://localhost:5000/api/tasks';
+
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const API_URL= `${backendUrl}/api/tasks`
+
 
 // Fetch all tasks
 export const fetchAllTasks = async () => {

@@ -10,16 +10,31 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Настройка CORS
+const allowedOrigins = [
+  'http://localhost:5173',               
+  'https://managetaskintime.netlify.app/'  
+];
+
 app.use(cors({
-  origin: 'http://localhost:5173',  // URL вашего клиента
+  origin: (origin, callback) => {
+    // Проверяем, входит ли origin в список разрешённых
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 
 // Дополнительная настройка для обработки preflight запросов (OPTIONS)
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');  // Разрешаем только с этого клиента
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin); // Разрешаем только для указанных Origin
+  }
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, x-auth-token'); // Заголовки, которые разрешены
+  res.header('Access-Control-Allow-Headers', 'Content-Type, x-auth-token');
   next();
 });
 

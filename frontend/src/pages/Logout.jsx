@@ -2,13 +2,16 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const apiUrl = '${backendUrl}/api';
+
 const Logout = () => {
   const navigate = useNavigate(); // Для редиректа после выхода
 
   const handleLogout = async () => {
     try {
       // Отправка POST-запроса на сервер для выхода
-      await axios.post('http://localhost:5000/api/auth/logout', {}, { withCredentials: true });
+      await axios.post('${apiUrl}/auth/logout', {}, { withCredentials: true });
 
       // Очистка токенов из localStorage
       localStorage.removeItem('accessToken');

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const apiUrl = `${backendUrl}/api`;
+
 
 const ProfilePage = () => {
   const [user, setUser] = useState(null);
@@ -14,7 +17,7 @@ const ProfilePage = () => {
         if (!token) throw new Error('User is not logged in.');
 
         // Исправленный URL для получения профиля
-        const response = await axios.get('http://localhost:5000/api/user/profile', {
+        const response = await axios.get(`${apiUrl}/user/profile`, {
           headers: { 'x-auth-token': token }, 
         });
 

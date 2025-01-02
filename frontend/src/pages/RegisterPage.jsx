@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const apiUrl = `${backendUrl}/api`;
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({ username: '', email: '', password: '' });
@@ -15,7 +17,7 @@ const RegisterPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const response = await axios.post(`${apiUrl}/auth/register`, formData);
       localStorage.setItem('accessToken', response.data.accessToken);
       navigate('/login'); // Redirect to login page after registration
     } catch (err) {

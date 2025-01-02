@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../redux/services/authService.js'; // Убедитесь, что путь правильный
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
+
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,7 +19,7 @@ const Login = () => {
   setError('');
   try {
     console.log("Logging in with:", email, password); // Логирование данных перед отправкой
-    const data = await loginUser(email, password, 'http://localhost:5000');
+    const data = await loginUser(email, password, backendUrl);
     localStorage.setItem('accessToken', data.accessToken);
     alert('You have logged in successfully!');
     navigate('/profile');

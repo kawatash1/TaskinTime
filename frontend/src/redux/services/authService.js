@@ -1,9 +1,11 @@
 import axios from 'axios';
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 // Функция для входа
-export const loginUser = async (email, password, baseUrl) => {
+export const loginUser = async (email, password, apiUrl) => {
   try {
-    const response = await axios.post(`${baseUrl}/api/auth/login`, { email, password }); // Отправляем email и password как объект
+    const response = await axios.post(`${backendUrl}/api/auth/login`, { email, password }); // Отправляем email и password как объект
     return response.data; // Возвращаем данные (например, токены)
   } catch (error) {
     throw new Error(error.response?.data?.message || 'Ошибка при входе');
