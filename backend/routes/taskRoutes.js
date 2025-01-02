@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
 
-import * as taskController from '../controllers/taskController.js'; и
+import * as taskController from '../controllers/taskController.js';
 
 router.post('/', taskController.createTask);
 router.get('/', taskController.getAllTasks);
