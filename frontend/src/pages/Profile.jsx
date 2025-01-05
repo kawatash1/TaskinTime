@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = "https://taskin-time-backend.onrender.com";
 const apiUrl = `${backendUrl}/api`;
 console.log(apiUrl);
 

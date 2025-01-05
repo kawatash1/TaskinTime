@@ -1,7 +1,7 @@
 console.log(process.env.REACT_APP_BACKEND_URL);
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
-const API_URL= `/api/tasks`
+const backendUrl = "https://taskin-time-backend.onrender.com";
+const API_URL= `${backendUrl}/api/tasks`
 
 
 // Fetch all tasks
