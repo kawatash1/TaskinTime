@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const backendUrl = import.meta.env.REACT_APP_BACKEND_URL;
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 // Функция для входа
 export const loginUser = async (email, password, backendUrl) => {

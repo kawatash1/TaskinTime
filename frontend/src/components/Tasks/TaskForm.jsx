@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const backendUrl = import.meta.env.REACT_APP_BACKEND_URL;
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 // const backendUrl = "https://taskin-time-backend.onrender.com";
 console.log(backendUrl);
 const apiUrl = `${backendUrl}/api`;
