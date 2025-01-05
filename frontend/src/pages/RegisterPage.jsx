@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
-const apiUrl = `${backendUrl}/api`;
+const backendUrl = import.meta.env.REACT_APP_BACKEND_URL;
+console.log(backendUrl);
 
+const apiUrl = `${backendUrl}/api`;
 const RegisterPage = () => {
   const [formData, setFormData] = useState({ username: '', email: '', password: '' });
   const [error, setError] = useState('');

@@ -9,10 +9,13 @@ import userRoutes from './routes/userRoutes.js';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+
 // Настройка CORS
 const allowedOrigins = [
   'http://localhost:5173',               
-  'https://managetaskintime.netlify.app/'  
+  'https://managetaskintime.netlify.app',
+  'https://taskintimee.netlify.app',
+  'https://taskin-time-backend.onrender.com'
 ];
 
 app.use(cors({
@@ -35,6 +38,9 @@ app.use((req, res, next) => {
   }
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, x-auth-token');
+  if (req.method === 'POST') {
+    console.log(res.sendStatus(200)); // Убедитесь, что preflight запрос завершается успешно
+  }
   next();
 });
 

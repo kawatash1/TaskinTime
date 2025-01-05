@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = import.meta.env.REACT_APP_BACKEND_URL;
+// const backendUrl = "https://taskin-time-backend.onrender.com";
+console.log(backendUrl);
 const apiUrl = `${backendUrl}/api`;
-
+console.log(apiUrl);
 
 const TaskForm = ({ onSubmit }) => {
   const [title, setTitle] = useState('');
@@ -15,7 +17,7 @@ const TaskForm = ({ onSubmit }) => {
     console.log('Submitting task:', { title, description, category }); // Логируем данные
     setLoading(true);
     try {
-        const response = await fetch('${apiUrl}/tasks', {
+        const response = await fetch(`${apiUrl}/tasks`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ title, description, category }),
