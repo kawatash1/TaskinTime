@@ -60,6 +60,7 @@ export const loginUser = async (req, res, next) => {
 
     const accessToken = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '15m' });
     const refreshToken = jwt.sign({ _id: user._id }, process.env.JWT_REFRESH_SECRET, { expiresIn: '7d' });
+    console.log('Generated accessToken:', accessToken);
 
     user.refreshToken = refreshToken;
     await user.save();
