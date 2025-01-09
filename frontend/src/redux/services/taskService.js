@@ -1,4 +1,3 @@
-console.log("REACT_APP_BACKEND_URL: "+process.env.REACT_APP_BACKEND_URL); //НЕ РАБОТАЕТ
 console.log("VITE_APP_BACKEND_URL: "+import.meta.env.VITE_APP_BACKEND_URL); //РАБОТАЕТ
 
 // const backendUrl = "https://taskin-time-backend.onrender.com";

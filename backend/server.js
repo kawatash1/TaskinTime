@@ -15,7 +15,6 @@ const allowedOrigins = [
   'http://localhost:5173',               
   'https://taskintimee.netlify.app',
   'https://taskintimeee.netlify.app'
-  // 'https://taskin-time-backend.onrender.com'
 ];
 
 app.use(cors({

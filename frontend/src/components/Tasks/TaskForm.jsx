@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 
-// const backendUrl = "https://taskin-time-backend.onrender.com";
 const backendUrl = import.meta.env.VITE_APP_BACKEND_URL;
-
-console.log(backendUrl);
 const apiUrl = `${backendUrl}/api`;
-console.log(apiUrl);
 
 const TaskForm = ({ onSubmit }) => {
   const [title, setTitle] = useState('');

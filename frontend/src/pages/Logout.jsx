@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
-// const backendUrl = "https://taskin-time-backend.onrender.com";
 const backendUrl = import.meta.env.VITE_APP_BACKEND_URL;
 
 const apiUrl = `${backendUrl}/api`;
