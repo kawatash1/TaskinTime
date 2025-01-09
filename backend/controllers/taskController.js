@@ -5,14 +5,14 @@ import Task from '../models/Task.js';
 // Create a new task
 export const createTask = async (req, res) => {
     try {
-        // console.log('Request body:', req.body); 
+        console.log('Request body:', req.body); 
         const task = new Task(req.body);
         const savedTask = await task.save();
         // console.log('Saved task:', savedTask);
-        res.status(201).json(savedTask);
+        return res.status(201).json(task); // Завершаем выполнение
     } catch (error) {
         console.error('Error creating task:', error);
-        res.status(400).json({ error: error.message });
+        return res.status(500).json({ error: 'Failed to create task' });
     }
 };
 

@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const backendUrl = "https://taskin-time-backend.onrender.com";
+const backendUrl = import.meta.env.VITE_APP_BACKEND_URL
+// console.log("authService.js - backendUrl:"+process.env.REACT_APP_BACKEND_URL)
 
 // Функция для входа
 export const loginUser = async (email, password, backendUrl) => {

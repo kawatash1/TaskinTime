@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-// const backendUrl = process.env.REACT_APP_BACKEND_URL;
-const backendUrl = "https://taskin-time-backend.onrender.com";
+// const backendUrl = "https://taskin-time-backend.onrender.com";
+const backendUrl = import.meta.env.VITE_APP_BACKEND_URL;
+
 console.log(backendUrl);
 const apiUrl = `${backendUrl}/api`;
 console.log(apiUrl);
@@ -22,7 +23,12 @@ const TaskForm = ({ onSubmit }) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ title, description, category }),
         });
-        if (!response.ok) throw new Error('Failed to create task');
+        // if (!response.ok) throw new Error('Failed to create task');
+        if (!response.ok){
+          const errorText = await response.text();
+          console.error('Server error:', errorText);
+          throw new Error(`Failed to create task: ${errorText}`);
+      }
 
         const newTask = await response.json();
         console.log('Task created:', newTask); // Логируем ответ сервера

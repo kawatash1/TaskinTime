@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../redux/services/authService.js'; // Убедитесь, что путь правильный
 
-const backendUrl = "https://taskin-time-backend.onrender.com";
-
+// const backendUrl = "https://taskin-time-backend.onrender.com";
+const backendUrl = import.meta.env.VITE_APP_BACKEND_URL;
 
 
 const Login = () => {

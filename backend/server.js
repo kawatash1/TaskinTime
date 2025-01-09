@@ -13,9 +13,9 @@ const PORT = process.env.PORT || 5000;
 // Настройка CORS
 const allowedOrigins = [
   'http://localhost:5173',               
-  'https://managetaskintime.netlify.app',
   'https://taskintimee.netlify.app',
-  'https://taskin-time-backend.onrender.com'
+  'https://taskintimeee.netlify.app'
+  // 'https://taskin-time-backend.onrender.com'
 ];
 
 app.use(cors({
