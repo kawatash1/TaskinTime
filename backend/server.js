@@ -37,7 +37,7 @@ app.use((req, res, next) => {
   }
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, x-auth-token');
-  if (req.method === 'POST') {
+  if (req.method === 'OPTIONS') {
     console.log(res.sendStatus(200)); // Убедитесь, что preflight запрос завершается успешно
   }
   next();
@@ -68,7 +68,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/test', (req, res) => {
-  res.status(200).json({ message: 'Тестовый ответ' });
+  console.log('Тестовый маршрут вызван');
+  res.json({ message: 'Тестовый ответ' });
 });
 
 

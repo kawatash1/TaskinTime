@@ -18,7 +18,7 @@ const ProfilePage = () => {
         const token = localStorage.getItem('accessToken');
         if (!token) throw new Error('User is not logged in.');
 
-        // Исправленный URL для получения профиля
+        console.log('Отправляем токен в профиле:', token);
         const response = await axios.get(`${apiUrl}/user/profile`, {
           headers: { 'x-auth-token': token }, 
         });
