@@ -67,6 +67,11 @@ app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
+app.post('/test', (req, res) => {
+  res.status(200).json({ message: 'Тестовый ответ' });
+});
+
+
 // Запуск сервера
 app.listen(PORT, () => 
   console.log(`Server running on port ${PORT}`)
